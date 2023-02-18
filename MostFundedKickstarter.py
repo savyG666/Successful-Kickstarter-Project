@@ -17,7 +17,8 @@ plt.ylabel('Number of Projects')
 plt.xlabel('Category of Project')
 plt.show()
 
-"""" We can see that the Tabletop games category is most successful, so let's subset this and have a deep look into which projects are successful in this category"""
+""""We can see that the Tabletop games category is most successful, so let's subset this and randomly sample the description of 5 projects, 
+this will give us qualative data showing which projects have been successful"""
 TabletopGames = MostFunded[MostFunded['category_name']=='Tabletop Games']
 TabletopSamples = TabletopGames.sample(5, replace=False)
 print(TabletopSamples['profile_blurb'])
@@ -39,8 +40,9 @@ plt.ylabel('Number of Projects')
 plt.xlabel('State of Project')
 plt.show()
 
+"""The state with the most successful projects was California, by quite a large margin."""
+
 PickCols = MostFunded['staff_pick'].value_counts()
 print(round((PickCols[True]/PickCols.sum())*100, 1), '% of top projects were a Staff Pick')
 
-SpotlightCols = MostFunded['spotlight'].value_counts()
-print(round((SpotlightCols[True]/SpotlightCols.sum())*100, 1), '% of top projects were a Spotlight Project')
+"""
